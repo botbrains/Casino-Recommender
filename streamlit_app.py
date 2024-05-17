@@ -12,32 +12,32 @@ if 'step' not in st.session_state:
 # Define the list of online casinos with affiliate links
 casinos = [
     {
-        "name": "Casino A", 
-        "games": ["slots", "poker", "blackjack"], 
-        "providers": ["NetEnt", "Microgaming"], 
-        "payments": ["crypto", "card"],
-        "affiliate_link": "https://affiliate.example.com/casinoA"
+        "name": "Betplay.io", 
+        "games": ["slots", "poker", "blackjack", "roulette"], 
+        "providers": ["Netent", "Microgaming"], 
+        "payments": ["crypto"],
+        "affiliate_link": "https://betplay.io/?ref=betrlist"
     },
     {
-        "name": "Casino B", 
+        "name": "BC.Game", 
         "games": ["roulette", "slots"], 
-        "providers": ["Playtech"], 
-        "payments": ["bank", "card"],
-        "affiliate_link": "https://affiliate.example.com/casinoB"
+        "providers": ["Microgaming", "Netent"], 
+        "payments": ["crypto", "card"],
+        "affiliate_link": "https://bc.game/i-betrlist-n/"
     },
     {
-        "name": "Casino C", 
-        "games": ["poker", "roulette"], 
-        "providers": ["NetEnt"], 
-        "payments": ["crypto", "bank"],
-        "affiliate_link": "https://affiliate.example.com/casinoC"
-    },
-    {
-        "name": "Casino D", 
-        "games": ["blackjack", "slots"], 
-        "providers": ["Microgaming", "Playtech"], 
+        "name": "BitStarz", 
+        "games": ["slots", "poker", "roulette"], 
+        "providers": ["Playtech", "Microgaming", "Netent"], 
         "payments": ["crypto", "bank", "card"],
-        "affiliate_link": "https://affiliate.example.com/casinoD"
+        "affiliate_link": "https://bs3.direct/b393c8f59"
+    },
+    {
+        "name": "Pulsz", 
+        "games": ["slots", "roulette"], 
+        "providers": ["Microgaming", "Playtech", "Netent"], 
+        "payments": ["bank", "card"],
+        "affiliate_link": "www.pulsz.com/?invited_by=xu4qcd"
     },
 ]
 
