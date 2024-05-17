@@ -88,9 +88,9 @@ elif st.session_state.step == 2:
     st.subheader("What payment options do you prefer?")
     
     # Display images for payment methods
-    st.image("crypto_image.jpg", caption="Crypto", width=100)
-    st.image("bank_image.jpg", caption="Bank", width=100)
-    st.image("card_image.jpg", caption="Card", width=100)
+    st.image("crypto_image.png", caption="Crypto", width=100)
+    st.image("bank_image.png", caption="Bank", width=100)
+    st.image("card_image.png", caption="Card", width=100)
     
     st.session_state.preferences["payment_preference"] = st.radio(
         "Select a payment method", 
