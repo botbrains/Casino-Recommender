@@ -72,10 +72,10 @@ elif st.session_state.step == 1:
     st.subheader("Are you looking for a specific game provider?")
     
     # Display images for game providers
-    st.image("path/to/no_preference_image.jpg", caption="No Preference", width=100)
-    st.image("path/to/netent_image.jpg", caption="NetEnt", width=100)
-    st.image("path/to/microgaming_image.jpg", caption="Microgaming", width=100)
-    st.image("path/to/playtech_image.jpg", caption="Playtech", width=100)
+    st.image("no_preference_image.jpg", caption="No Preference", width=100)
+    st.image("netent_image.jpg", caption="NetEnt", width=100)
+    st.image("microgaming_image.jpg", caption="Microgaming", width=100)
+    st.image("playtech_image.jpg", caption="Playtech", width=100)
     
     st.session_state.preferences["provider_preference"] = st.radio(
         "Select a game provider", 
@@ -88,9 +88,9 @@ elif st.session_state.step == 2:
     st.subheader("What payment options do you prefer?")
     
     # Display images for payment methods
-    st.image("path/to/crypto_image.jpg", caption="Crypto", width=100)
-    st.image("path/to/bank_image.jpg", caption="Bank", width=100)
-    st.image("path/to/card_image.jpg", caption="Card", width=100)
+    st.image("crypto_image.jpg", caption="Crypto", width=100)
+    st.image("bank_image.jpg", caption="Bank", width=100)
+    st.image("card_image.jpg", caption="Card", width=100)
     
     st.session_state.preferences["payment_preference"] = st.radio(
         "Select a payment method", 
