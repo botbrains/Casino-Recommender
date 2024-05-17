@@ -72,7 +72,7 @@ elif st.session_state.step == 1:
     st.subheader("Are you looking for a specific game provider?")
     
     # Display images for game providers
-    st.image("no_preference_image.jpg", caption="No Preference", width=100)
+    st.image("no_preference_image.png", caption="No Preference", width=100)
     st.image("netent_image.jpg", caption="NetEnt", width=100)
     st.image("microgaming_image.jpg", caption="Microgaming", width=100)
     st.image("playtech_image.jpg", caption="Playtech", width=100)
