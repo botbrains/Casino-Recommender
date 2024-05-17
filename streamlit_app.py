@@ -52,8 +52,8 @@ def filter_casinos(casinos, preferences):
 
 # Steps to ask questions
 if st.session_state.step == 0:
-    st.title("Find Your Best Online Casino")
-    st.subheader("What type of games do you play?")
+    st.title("AI Casino Finder")
+    st.subheader("What style of casino games do you prefer?")
     
     # Display images for game types
     st.image("slots.png", caption="Slots", width=100)
@@ -62,30 +62,32 @@ if st.session_state.step == 0:
     st.image("roulette.png", caption="Roulette", width=100)
     
     st.session_state.preferences["game_preference"] = st.radio(
-        "Select a game type", 
-        ["slots", "poker", "blackjack", "roulette"]
+        "Choose a favorite style of casino gameplay", 
+        ["slots", "poker", "blackjack", "roulette"],
+        index=None,
     )
     if st.button("Next"):
         st.session_state.step += 1
 
 elif st.session_state.step == 1:
-    st.subheader("Are you looking for a specific game provider?")
+    st.subheader("Select your favorite game provider!")
     
     # Display images for game providers
     st.image("no_preference_image.png", caption="No Preference", width=100)
-    st.image("netent.png", caption="NetEnt", width=100)
+    st.image("netent.png", caption="Netent", width=100)
     st.image("microgaming.png", caption="Microgaming", width=100)
     st.image("playtech.png", caption="Playtech", width=100)
     
     st.session_state.preferences["provider_preference"] = st.radio(
         "Select a game provider", 
-        ["No Preference", "NetEnt", "Microgaming", "Playtech"]
+        ["No Preference", "Netent", "Microgaming", "Playtech"],
+        index=None,
     )
     if st.button("Next"):
         st.session_state.step += 1
 
 elif st.session_state.step == 2:
-    st.subheader("What payment options do you prefer?")
+    st.subheader("Which payment option do you prefer?")
     
     # Display images for payment methods
     st.image("crypto_image.png", caption="Crypto", width=100)
@@ -94,16 +96,17 @@ elif st.session_state.step == 2:
     
     st.session_state.preferences["payment_preference"] = st.radio(
         "Select a payment method", 
-        ["crypto", "bank", "card"]
+        ["crypto", "bank", "card"],
+        index=None,
     )
-    if st.button("Find Best Casino"):
+    if st.button("Find AI Casino Recomendations"):
         st.session_state.step += 1
 
 # Display the best casinos based on user preferences
 if st.session_state.step == 3:
     best_casinos = filter_casinos(casinos, st.session_state.preferences)
     if best_casinos:
-        st.subheader("Based on your preferences, we recommend the following casino(s):")
+        st.subheader("Based on your preferences, AI recommends the following casino(s):")
         for casino in best_casinos:
             st.write(f"**{casino['name']}**")
             # Provide the unique affiliate link for the casino
