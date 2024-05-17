@@ -1,4 +1,5 @@
 import streamlit as st
+import numpy as np
 
 # Initialize session state
 if 'step' not in st.session_state:
@@ -41,14 +42,12 @@ casinos = [
     },
 ]
 
-# Function to filter casinos based on user preferences
-def filter_casinos(casinos, preferences):
-    filtered_casinos = []
-    for casino in casinos:
-        if preferences["game_preference"] in casino["games"] and preferences["payment_preference"] in casino["payments"]:
-            if preferences["provider_preference"] == "No Preference" or preferences["provider_preference"] in casino["providers"]:
-                filtered_casinos.append(casino)
-    return filtered_casinos
+# Function to calculate similarity score between user preferences and casino features
+def calculate_similarity(user_prefs, casino):
+    game_sim = len(set(user_prefs["game_preference"]).intersection(casino["games"])) / len(user_prefs["game_preference"])
+    provider_sim = len(set(user_prefs["provider_preference"]).intersection(casino["providers"])) / len(user_prefs["provider_preference"])
+    payment_sim = len(set(user_prefs["payment_preference"]).intersection(casino["payments"])) / len(user_prefs["payment_preference"])
+    return np.mean([game_sim, provider_sim, payment_sim])
 
 # Steps to ask questions
 if st.session_state.step == 0:
@@ -61,10 +60,10 @@ if st.session_state.step == 0:
     st.image("poker.png", caption="Blackjack", width=100)
     st.image("roulette.png", caption="Roulette", width=100)
     
-    st.session_state.preferences["game_preference"] = st.radio(
-        "Choose a favorite style of casino gameplay", 
+    st.session_state.preferences["game_preference"] = st.multiselect(
+        "Choose favorite styles of casino gameplay", 
         ["slots", "poker", "blackjack", "roulette"],
-        index=None,
+        default=None,
     )
     if st.button("Next"):
         st.session_state.step += 1
@@ -78,10 +77,10 @@ elif st.session_state.step == 1:
     st.image("microgaming.png", caption="Microgaming", width=100)
     st.image("playtech.png", caption="Playtech", width=100)
     
-    st.session_state.preferences["provider_preference"] = st.radio(
-        "Select a game provider", 
+    st.session_state.preferences["provider_preference"] = st.multiselect(
+        "Select favorite game providers", 
         ["No Preference", "Netent", "Microgaming", "Playtech"],
-        index=None,
+        default=None,
     )
     if st.button("Next"):
         st.session_state.step += 1
@@ -94,17 +93,18 @@ elif st.session_state.step == 2:
     st.image("bank_image.png", caption="Bank", width=100)
     st.image("card_image.png", caption="Card", width=100)
     
-    st.session_state.preferences["payment_preference"] = st.radio(
-        "Select a payment method", 
+    st.session_state.preferences["payment_preference"] = st.multiselect(
+        "Select favorite payment methods", 
         ["crypto", "bank", "card"],
-        index=None,
+        default=None,
     )
-    if st.button("Find AI Casino Recomendations"):
+    if st.button("Find AI Casino Recommendations"):
         st.session_state.step += 1
 
 # Display the best casinos based on user preferences
 if st.session_state.step == 3:
-    best_casinos = filter_casinos(casinos, st.session_state.preferences)
+    user_prefs = st.session_state.preferences
+    best_casinos = sorted(casinos, key=lambda x: calculate_similarity(user_prefs, x), reverse=True)[:2]
     if best_casinos:
         st.subheader("Based on your preferences, AI recommends the following casino(s):")
         for casino in best_casinos:
