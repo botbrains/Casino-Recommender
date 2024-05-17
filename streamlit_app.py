@@ -15,28 +15,28 @@ casinos = [
     {
         "name": "Betplay.io", 
         "games": ["slots", "poker", "blackjack", "roulette"], 
-        "providers": ["Netent", "Microgaming"], 
+        "providers": ["No Preference", "Netent", "Microgaming"], 
         "payments": ["crypto"],
         "affiliate_link": "https://betplay.io/?ref=betrlist"
     },
     {
         "name": "BC.Game", 
         "games": ["roulette", "slots"], 
-        "providers": ["Microgaming", "Netent"], 
+        "providers": ["No Preference", "Microgaming", "Netent"], 
         "payments": ["crypto", "card"],
         "affiliate_link": "https://bc.game/i-betrlist-n/"
     },
     {
         "name": "BitStarz", 
         "games": ["slots", "poker", "roulette"], 
-        "providers": ["Playtech", "Microgaming", "Netent"], 
+        "providers": ["No Preference", "Playtech", "Microgaming", "Netent"], 
         "payments": ["crypto", "bank", "card"],
         "affiliate_link": "https://bs3.direct/b393c8f59"
     },
     {
         "name": "Pulsz", 
         "games": ["slots", "roulette"], 
-        "providers": ["Microgaming", "Playtech", "Netent"], 
+        "providers": ["No Preference", "Microgaming", "Playtech", "Netent"], 
         "payments": ["bank", "card"],
         "affiliate_link": "www.pulsz.com/?invited_by=xu4qcd"
     },
