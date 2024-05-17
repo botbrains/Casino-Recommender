@@ -73,9 +73,9 @@ elif st.session_state.step == 1:
     
     # Display images for game providers
     st.image("no_preference_image.png", caption="No Preference", width=100)
-    st.image("netent_image.jpg", caption="NetEnt", width=100)
-    st.image("microgaming_image.jpg", caption="Microgaming", width=100)
-    st.image("playtech_image.jpg", caption="Playtech", width=100)
+    st.image("netent.png", caption="NetEnt", width=100)
+    st.image("microgaming.png", caption="Microgaming", width=100)
+    st.image("playtech.png", caption="Playtech", width=100)
     
     st.session_state.preferences["provider_preference"] = st.radio(
         "Select a game provider", 
