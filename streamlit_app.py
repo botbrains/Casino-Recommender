@@ -44,9 +44,14 @@ casinos = [
 
 # Function to calculate similarity score between user preferences and casino features
 def calculate_similarity(user_prefs, casino):
-    game_sim = len(set(user_prefs["game_preference"]).intersection(casino["games"])) / len(user_prefs["game_preference"])
-    provider_sim = len(set(user_prefs["provider_preference"]).intersection(casino["providers"])) / len(user_prefs["provider_preference"])
-    payment_sim = len(set(user_prefs["payment_preference"]).intersection(casino["payments"])) / len(user_prefs["payment_preference"])
+    game_pref = user_prefs["game_preference"]
+    provider_pref = user_prefs["provider_preference"]
+    payment_pref = user_prefs["payment_preference"]
+    
+    game_sim = len(set(game_pref).intersection(casino["games"])) / len(game_pref) if game_pref else 0
+    provider_sim = len(set(provider_pref).intersection(casino["providers"])) / len(provider_pref) if provider_pref else 0
+    payment_sim = len(set(payment_pref).intersection(casino["payments"])) / len(payment_pref) if payment_pref else 0
+    
     return np.mean([game_sim, provider_sim, payment_sim])
 
 # Steps to ask questions
