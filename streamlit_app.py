@@ -56,10 +56,10 @@ if st.session_state.step == 0:
     st.subheader("What type of games do you play?")
     
     # Display images for game types
-    st.image("path/to/slots_image.jpg", caption="Slots", width=100)
-    st.image("path/to/poker_image.jpg", caption="Poker", width=100)
-    st.image("path/to/blackjack_image.jpg", caption="Blackjack", width=100)
-    st.image("path/to/roulette_image.jpg", caption="Roulette", width=100)
+    st.image("slots.png", caption="Slots", width=100)
+    st.image("poker.png", caption="Poker", width=100)
+    st.image("poker.png", caption="Blackjack", width=100)
+    st.image("roulette.png", caption="Roulette", width=100)
     
     st.session_state.preferences["game_preference"] = st.radio(
         "Select a game type", 
