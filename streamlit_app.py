@@ -66,7 +66,7 @@ if st.session_state.step == 0:
     # Display images for game types
     st.image("slots.png", caption="Slots", width=100)
     st.image("poker.png", caption="Poker", width=100)
-    st.image("blackjack.png", caption="Blackjack", width=100)
+    st.image("poker_image.png", caption="Blackjack", width=100)
     st.image("roulette.png", caption="Roulette", width=100)
     
     st.session_state.preferences["game_preference"] = st.multiselect(
