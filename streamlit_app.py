@@ -117,7 +117,7 @@ if st.session_state.step == 3:
     if best_casinos:
         st.subheader("Based on your preferences, AI recommends the following casino(s):")
         for casino in best_casinos:
-            st.image(casino["logo"], width=100)
+            st.image(casino["logo"], width=250)
             st.write(f"**{casino['name']}**")
             # Provide the unique affiliate link for the casino
             st.write(f"[Visit {casino['name']}]({casino['affiliate_link']})")
