@@ -67,7 +67,7 @@ if st.session_state.step == 0:
     # Display images for game types
     selected_game = image_select(
         label="Choose your favorite style of casino gameplay",
-        images=["slots.png", "poker_image.png", "blackjack.png", "roulette.png"],
+        images=["slots.png", "poker_image.png", "poker.png", "roulette.png"],
         captions=["Slots", "Poker", "Blackjack", "Roulette"],
         use_container_width=False
     )
