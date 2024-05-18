@@ -52,7 +52,7 @@ def calculate_similarity(user_prefs, casino):
     game_pref = user_prefs["game_preference"]
     provider_pref = user_prefs["provider_preference"]
     payment_pref = user_prefs["payment_preference"]
-
+    
     game_sim = len(set(game_pref).intersection(casino["games"])) / len(game_pref) if game_pref else 0
     provider_sim = len(set(provider_pref).intersection(casino["providers"])) / len(provider_pref) if provider_pref else 0
     payment_sim = len(set(payment_pref).intersection(casino["payments"])) / len(payment_pref) if payment_pref else 0
@@ -67,14 +67,13 @@ if st.session_state.step == 0:
     # Display images for game types
     selected_game = image_select(
         label="Choose your favorite style of casino gameplay",
-        images=["slots.png", "poker_image.png", "blackjack.png", "roulette.png"],
+        images=["slots.png", "poker_image.png", "poker.png", "roulette.png"],
         captions=["Slots", "Poker", "Blackjack", "Roulette"],
         use_container_width=False
     )
     
     if selected_game:
-        if selected_game.lower() not in st.session_state.preferences["game_preference"]:
-            st.session_state.preferences["game_preference"].append(selected_game.lower())
+        st.session_state.preferences["game_preference"].append(selected_game.lower())
         if st.button("Next"):
             st.session_state.step += 1
 
@@ -90,8 +89,7 @@ elif st.session_state.step == 1:
     )
     
     if selected_provider:
-        if selected_provider not in st.session_state.preferences["provider_preference"]:
-            st.session_state.preferences["provider_preference"].append(selected_provider)
+        st.session_state.preferences["provider_preference"].append(selected_provider)
         if st.button("Next"):
             st.session_state.step += 1
 
@@ -107,15 +105,23 @@ elif st.session_state.step == 2:
     )
     
     if selected_payment:
-        if selected_payment.lower() not in st.session_state.preferences["payment_preference"]:
-            st.session_state.preferences["payment_preference"].append(selected_payment.lower())
+        st.session_state.preferences["payment_preference"].append(selected_payment.lower())
         if st.button("Find AI Casino Recommendations"):
             st.session_state.step += 1
 
 # Display the best casinos based on user preferences
 if st.session_state.step == 3:
     user_prefs = st.session_state.preferences
+
+    # Debugging information
+    st.write("User Preferences:", user_prefs)
+
     best_casinos = sorted(casinos, key=lambda x: calculate_similarity(user_prefs, x), reverse=True)[:2]
+
+    # Debugging information
+    for casino in best_casinos:
+        st.write(f"Casino: {casino['name']}, Similarity Score: {calculate_similarity(user_prefs, casino)}")
+
     if best_casinos:
         st.subheader("Based on your preferences, AI recommends the following casino(s):")
         for casino in best_casinos:
