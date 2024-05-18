@@ -69,6 +69,7 @@ if st.session_state.step == 0:
         label="Choose your favorite style of casino gameplay",
         images=["slots.png", "poker_image.png", "blackjack.png", "roulette.png"],
         captions=["Slots", "Poker", "Blackjack", "Roulette"],
+        use_container_width=False
     )
     
     if selected_game:
@@ -84,6 +85,7 @@ elif st.session_state.step == 1:
         label="Select your favorite game provider",
         images=["no_preference.png", "netent.png", "microgaming.png", "playtech.png"],
         captions=["No Preference", "Netent", "Microgaming", "Playtech"],
+        use_container_width=False
     )
     
     if selected_provider:
@@ -99,6 +101,7 @@ elif st.session_state.step == 2:
         label="Select your favorite payment method",
         images=["crypto.png", "bank_image.png", "card_image.png"],
         captions=["Crypto", "Bank", "Card"],
+        use_container_width=False
     )
     
     if selected_payment:
