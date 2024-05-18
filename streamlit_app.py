@@ -18,7 +18,7 @@ casinos = [
         "providers": ["No Preference", "Netent", "Microgaming"], 
         "payments": ["crypto"],
         "affiliate_link": "https://betplay.io/?ref=betrlist",
-        "logo": "betplay_logo.png"
+        "logo": "betplay.png"
     },
     {
         "name": "BC.Game", 
@@ -26,7 +26,7 @@ casinos = [
         "providers": ["No Preference", "Microgaming", "Netent"], 
         "payments": ["crypto", "card"],
         "affiliate_link": "https://bc.game/i-betrlist-n/",
-        "logo": "bcgame_logo.png"
+        "logo": "bcgame.png"
     },
     {
         "name": "BitStarz", 
@@ -34,7 +34,7 @@ casinos = [
         "providers": ["No Preference", "Playtech", "Microgaming", "Netent"], 
         "payments": ["crypto", "bank", "card"],
         "affiliate_link": "https://bs3.direct/b393c8f59",
-        "logo": "bitstarz_logo.png"
+        "logo": "bitstarz.png"
     },
     {
         "name": "Pulsz", 
@@ -42,7 +42,7 @@ casinos = [
         "providers": ["No Preference", "Microgaming", "Playtech", "Netent"], 
         "payments": ["bank", "card"],
         "affiliate_link": "https://www.pulsz.com/?invited_by=xu4qcd",
-        "logo": "pulsz_logo.png"
+        "logo": "pulsz.png"
     },
 ]
 
