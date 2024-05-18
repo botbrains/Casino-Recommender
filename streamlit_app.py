@@ -99,8 +99,8 @@ elif st.session_state.step == 2:
     
     # Display images for payment methods
     st.image("crypto.png", caption="Crypto", width=100)
-    st.image("bank.png", caption="Bank", width=100)
-    st.image("card.png", caption="Card", width=100)
+    st.image("bank_image.png", caption="Bank", width=100)
+    st.image("card_image.png", caption="Card", width=100)
     
     st.session_state.preferences["payment_preference"] = st.multiselect(
         "Select favorite payment methods", 
