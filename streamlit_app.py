@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_image_select import image_select
 
 casinos = [
     {
@@ -40,14 +41,27 @@ def recommend_casino(games, payments):
 
 st.title("AI Casino Recommender")
 
-st.sidebar.title("Preferences")
+# Paginated survey for game preferences
+st.sidebar.title("Game Preferences")
+game_options = {
+    "Slots": "slots.png",
+    "Poker": "poker.png",
+    "Blackjack": "poker_image.png",
+    "Roulette": "roulette.png"
+}
+selected_games = image_select("Select preferred games", game_options, key="games")
 
-games = st.sidebar.multiselect("Select preferred games", options=["slots", "poker", "blackjack", "roulette"])
-
-payments = st.sidebar.multiselect("Select preferred payment methods", options=["crypto", "bank transfer", "debit / credit card"])
+# Paginated survey for payment preferences
+st.sidebar.title("Payment Preferences")
+payment_options = {
+    "Crypto": "crypto.png",
+    "Bank Transfer": "bank_image.png",
+    "Debit / Credit Card": "card_image.png"
+}
+selected_payments = image_select("Select preferred payment methods", payment_options, key="payments")
 
 if st.sidebar.button("Find Casinos"):
-    recommended = recommend_casino(games, payments)
+    recommended = recommend_casino(selected_games, selected_payments)
     if recommended:
         for casino in recommended:
             st.subheader(casino['name'])
