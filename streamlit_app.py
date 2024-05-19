@@ -46,7 +46,7 @@ st.sidebar.title("Game Preferences")
 game_options = {
     "Slots": "slots.png",
     "Poker": "poker.png",
-    "Blackjack": "poker_image.png",
+    "Blackjack": "blackjack.png",
     "Roulette": "roulette.png"
 }
 selected_games = image_select("Select preferred games", game_options, key="games")
@@ -55,8 +55,8 @@ selected_games = image_select("Select preferred games", game_options, key="games
 st.sidebar.title("Payment Preferences")
 payment_options = {
     "Crypto": "crypto.png",
-    "Bank Transfer": "bank_image.png",
-    "Debit / Credit Card": "card_image.png"
+    "Bank Transfer": "bank_transfer.png",
+    "Debit / Credit Card": "credit_card.png"
 }
 selected_payments = image_select("Select preferred payment methods", payment_options, key="payments")
 
